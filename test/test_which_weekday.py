@@ -1,5 +1,3 @@
-
-
 import pytest
 
 test_data = [
@@ -8,9 +6,9 @@ test_data = [
   (10**100, '?')
 ]
 
-params = pytest.mark.parametrize("days, expected", test_data)
+params = pytest.mark.parametrize("days, expected_weekday", test_data)
+
 
 @params
 def test_which_weekday(days: int, expected_weekday: str):
-  
-  return
+  assert False
