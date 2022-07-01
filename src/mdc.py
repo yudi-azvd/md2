@@ -1,3 +1,6 @@
+from typing import Set
+
+
 def mdc_r(a: int, b: int) -> int:
   if b == 0:
     return a
@@ -9,4 +12,18 @@ def mdc_i(a: int, b: int) -> int:
     a = b
     b = new_b
   return a
+
+def mdc_set(a: int, b: int) -> int:
+  a_divisors = __get_divisors(a)
+  b_divisors = __get_divisors(b)
+  mdc = max(a_divisors.intersection(b_divisors))
+  return mdc
+
+def __get_divisors(n: int) -> Set[int]:
+  divisors = set([1])
+  for i in range(2, n+1):
+    if n % i == 0:
+      divisors.add(i)
+  return divisors
+
   
