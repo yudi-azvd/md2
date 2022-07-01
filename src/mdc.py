@@ -1,6 +1,8 @@
 from typing import Set
 
-
+'''
+Algoritmo das divisões sucessivas
+'''
 def mdc_r(a: int, b: int) -> int:
   if b == 0:
     return a
@@ -13,6 +15,9 @@ def mdc_i(a: int, b: int) -> int:
     b = new_b
   return a
 
+'''
+Algoritmo usando a definição de MDC
+'''
 def mdc_set(a: int, b: int) -> int:
   a_divisors = __get_divisors(a)
   b_divisors = __get_divisors(b)
