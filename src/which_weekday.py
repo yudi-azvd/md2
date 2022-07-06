@@ -1,5 +1,5 @@
 '''
-Qual será o dia da semana daqui a 
+Qual será o dia da semana daqui a
 
 a) 100 dias
 b) 1.000.000 dias

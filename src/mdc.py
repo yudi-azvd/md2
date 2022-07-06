@@ -2,6 +2,7 @@ from typing import Set
 
 '''
 Algoritmo das divisões sucessivas recursiva
+Ou por definição?
 '''
 def mdc_r(a: int, b: int) -> int:
   if b == 0:
@@ -33,5 +34,3 @@ def __get_divisors(n: int) -> Set[int]:
     if n % i == 0:
       divisors.add(i)
   return divisors
-
-  
