@@ -11,6 +11,7 @@ def mdc_r(a: int, b: int) -> int:
 
 '''
 Algoritmo das divisões sucessivas iterativa
+Uma mudança.
 '''
 def mdc_i(a: int, b: int) -> int:
   while b != 0:
@@ -34,3 +35,6 @@ def __get_divisors(n: int) -> Set[int]:
     if n % i == 0:
       divisors.add(i)
   return divisors
+
+if __name__ == '__main__':
+  print(mdc_i(43, 5))
