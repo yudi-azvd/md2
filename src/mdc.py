@@ -24,12 +24,12 @@ def mdc_i(a: int, b: int) -> int:
 Algoritmo usando a definição de MDC
 '''
 def mdc_set(a: int, b: int) -> int:
-  a_divisors = __get_divisors(a)
-  b_divisors = __get_divisors(b)
+  a_divisors = get_divisors(a)
+  b_divisors = get_divisors(b)
   mdc = max(a_divisors.intersection(b_divisors))
   return mdc
 
-def __get_divisors(n: int) -> Set[int]:
+def get_divisors(n: int) -> Set[int]:
   divisors = set([1])
   for i in range(2, n+1):
     if n % i == 0:
@@ -38,3 +38,4 @@ def __get_divisors(n: int) -> Set[int]:
 
 if __name__ == '__main__':
   print(mdc_i(43, 5))
+  print(mdc_i(5017, 1585))
