@@ -20,8 +20,12 @@ class PrimeGenerator():
   __current_prime = 2
 
   def __init__(self, starting_number=2) -> None:
+    if starting_number <= 0:
+      raise Exception(f'Not allowed numbers less than 0.')
+
     if not is_prime(starting_number):
-      raise Exception(f'{starting_number} is not prime')
+      raise Exception(f'{starting_number} is not prime.'
+      '`starting_number` must be a prime.')
 
     self.__current_prime = starting_number
 

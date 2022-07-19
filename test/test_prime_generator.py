@@ -15,6 +15,10 @@ def test_should_throw_exception_if_starting_number_is_not_prime():
     PrimeGenerator(4)
   assert 'is not prime' in str(e.value)
   
+def test_should_throw_exception_if_starting_number_is_not_positive():
+  with pytest.raises(Exception) as e:
+    PrimeGenerator(-3)
+  assert 'Not allowed numbers less than 0' in str(e.value)
 
 def test_should_calculate_next_prime():
   sut = PrimeGenerator(2)
