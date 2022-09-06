@@ -1,4 +1,4 @@
-from mdc import mdc_i
+from md2.mdc import mdc_i
 
 def mmc_teo12(a: int, b: int) -> int:
   '''

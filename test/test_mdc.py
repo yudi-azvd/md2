@@ -1,6 +1,6 @@
 import pytest
 
-from mdc import mdc_i, mdc_r, mdc_set
+from md2.mdc import mdc_i, mdc_r, mdc_set
 
 test_data = [
   (15, 20, 5),

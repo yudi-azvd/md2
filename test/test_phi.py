@@ -1,6 +1,6 @@
 import pytest
 
-from euler import phi
+from md2.euler import phi
 
 test_data = [
   (1, 1),

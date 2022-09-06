@@ -1,7 +1,7 @@
 from typing import List, Optional
 import pytest
 
-from tcr import solve_congruence_eq
+from md2.tcr import solve_congruence_eq
 
 test_data = [
     (2, 5, 12, None),

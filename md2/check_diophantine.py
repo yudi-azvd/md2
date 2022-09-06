@@ -1,4 +1,4 @@
-from mdc import mdc_i
+from md2.mdc import mdc_i
 
 
 def check_diophantine(a, b, c, x0, y0, t_interval=20):

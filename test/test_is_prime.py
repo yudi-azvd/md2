@@ -1,4 +1,4 @@
-from primes import is_prime
+from md2.primes import is_prime
 
 def test_primes():
   assert is_prime(2)

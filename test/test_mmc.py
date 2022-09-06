@@ -1,6 +1,6 @@
 import pytest
 
-from mmc import mmc_backwards, mmc_backwards_2, mmc_teo12
+from md2.mmc import mmc_backwards, mmc_backwards_2, mmc_teo12
 
 test_data = [
   (15, 20, 60),

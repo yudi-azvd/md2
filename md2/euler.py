@@ -1,4 +1,4 @@
-from primes import is_prime, prime_factors_of
+from md2.primes import is_prime, prime_factors_of
 
 def phi(n) -> int:
   if is_prime(n):

@@ -1,5 +1,5 @@
 import pytest
-from primes import PrimeGenerator
+from md2.primes import PrimeGenerator
 
 def test_should_return_2_as_current_prime_given_no_args():
   sut = PrimeGenerator()
