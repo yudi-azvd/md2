@@ -1,3 +1,1 @@
 pytest==7.1.2
-commitizen
-pre-commit==2.19.0
