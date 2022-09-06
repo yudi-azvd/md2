@@ -8,6 +8,7 @@ import sys
 args = sys.argv[1::]
 input_path = args[0]
 
+
 def get_input(input_path: str) -> List[List[int]]:
     file = open(input_path, 'r')
     matrix_input = []
@@ -17,6 +18,7 @@ def get_input(input_path: str) -> List[List[int]]:
         matrix_input.append(values_int)
     return matrix_input
 
+
 def check_all_n_are_coprimes(n_list: List[int]) -> bool:
     n_list_size = len(n_list)
     for i in range(n_list_size):
@@ -25,32 +27,37 @@ def check_all_n_are_coprimes(n_list: List[int]) -> bool:
                 return False
     return True
 
+
 def check_ai_ni_are_coprimes(a_list: List[int], n_list: List[int]) -> bool:
     for ai, ni in zip(a_list, n_list):
         if mdc_i(ai, ni) != 1:
             return False
     return True
 
+
 def check_solution_exists(a_list: List[int], n_list: List[int]) -> bool:
     return check_ai_ni_are_coprimes(a_list, n_list) and check_all_n_are_coprimes(n_list)
+
 
 def solve_congruence_eq(a: int, b: int, n: int) -> int:
     # ax congr b (mod n)
     return 0
 
+
 def main():
     # Saída esperada para input1.csv
     print('x =', 38)
+    print('N =', 105)
+
     matrix_input = get_input(input_path)
     a_list = [row[0] for row in matrix_input]
     b_list = [row[1] for row in matrix_input]
     n_list = [row[2] for row in matrix_input]
     k = len(matrix_input)
 
-
     # print(n_list)
     # all_n_are_coprimes = verify_all_n_are_coprimes(n_list)
-    print( check_ai_ni_are_coprimes(a_list, n_list))
+    print(check_ai_ni_are_coprimes(a_list, n_list))
     # print('all_n_are_coprimes', all_n_are_coprimes)
     # print(k)
     # print(matrix_input)
@@ -62,7 +69,6 @@ def main():
     0 0 0
     '''
 
-    print('N =', 105)
 
 if __name__ == '__main__':
     main()
