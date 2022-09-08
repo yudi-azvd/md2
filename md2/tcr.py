@@ -1,7 +1,7 @@
 # https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
 # Aula 12
 
-from typing import List
+from typing import List, Literal
 from md2.mdc import mdc_i
 import sys
 
@@ -43,11 +43,30 @@ def find_inverse_mod_n(a: int, n: int) -> int | None:
     '''
     Encontrar i : a.i ≡ 1 (mod n)
     '''
-    for i in range(n):
+    for i in range(1, n):
         if (a*i - 1) % n == 0:
             return i
     return None
 
+def _try_brute_force(a: int, b: int, n: int) -> int | None:
+    print('>>> a=', a, ' b=', b, ' n=', n)
+    for x in range(1, n):
+        print('>>> a*x - b =', (a*x - b), 'x=', x, 'n=', n)
+        if (a*x - b) % n == 0:
+            return x
+    return None
+
+def solve_congruence_eq(a: int, b: int, n: int) -> int | None:
+    '''
+    ax ≡ b (mod n)
+    x ≡ b.i (mod n), i inv a (mod n)
+    '''
+    i = find_inverse_mod_n(a, n)
+    if i == None:
+        return _try_brute_force(a, b, n)
+    x = b*i
+    x = x % n
+    return x
 
 
 def main():
