@@ -1,7 +1,8 @@
 # https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
 # Aula 12
 
-from typing import List, Literal
+from functools import reduce
+from typing import List, Tuple
 from md2.mdc import mdc_i
 import sys
 
@@ -49,9 +50,7 @@ def find_inverse_mod_n(a: int, n: int) -> int | None:
     return None
 
 def _try_brute_force(a: int, b: int, n: int) -> int | None:
-    print('>>> a=', a, ' b=', b, ' n=', n)
     for x in range(1, n):
-        print('>>> a*x - b =', (a*x - b), 'x=', x, 'n=', n)
         if (a*x - b) % n == 0:
             return x
     return None
@@ -68,32 +67,37 @@ def solve_congruence_eq(a: int, b: int, n: int) -> int | None:
     x = x % n
     return x
 
+def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
+    a_list = [row[0] for row in system]
+    n_list = [row[2] for row in system]
+
+    if not (check_ai_ni_are_coprimes(a_list, n_list) and check_all_n_are_coprimes(n_list)):
+        raise Exception('Não existe solução')
+    
+    solutions = [solve_congruence_eq(eq[0], eq[1], eq[2]) for eq in system]
+    
+    N = 1
+    for ni in n_list:
+        N *= ni
+    N_list = [N//ni for ni in n_list]
+
+    Ninv_list = [find_inverse_mod_n(Ni, ni) for (Ni, ni) in zip(N_list, n_list)]
+
+    x = 0
+    for (xi, Ni, Ni_inv) in zip(solutions, N_list, Ninv_list):
+        x += xi*Ni*Ni_inv
+    return (x % N, N)
+
 
 def main():
-    # Saída esperada para input1.csv
-    print('x =', 38)
-    print('N =', 105)
+    # Saída esperada:
+    # input1: x = 38, N = 105
+    # input2: x = 416, N = 630
+    # input3: x = 74, N = 420 (vídeo L03Q02)
 
-    matrix_input = get_input(input_path)
-    a_list = [row[0] for row in matrix_input]
-    b_list = [row[1] for row in matrix_input]
-    n_list = [row[2] for row in matrix_input]
-    k = len(matrix_input)
+    system = get_input(input_path)
 
-    # print(n_list)
-    # all_n_are_coprimes = verify_all_n_are_coprimes(n_list)
-    print(check_ai_ni_are_coprimes(a_list, n_list))
-    # print('all_n_are_coprimes', all_n_are_coprimes)
-    # print(k)
-    # print(matrix_input)
-    # print(a_list)
-    # print(b_list)
-    '''
-    0 0 0
-    0 0 0
-    0 0 0
-    '''
-
+    print(solve_congruence_sys(system))
 
 if __name__ == '__main__':
     main()
