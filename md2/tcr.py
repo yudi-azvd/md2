@@ -39,9 +39,15 @@ def check_solution_exists(a_list: List[int], n_list: List[int]) -> bool:
     return check_ai_ni_are_coprimes(a_list, n_list) and check_all_n_are_coprimes(n_list)
 
 
-def solve_congruence_eq(a: int, b: int, n: int) -> int:
-    # ax congr b (mod n)
-    return 0
+def find_inverse_mod_n(a: int, n: int) -> int | None:
+    '''
+    Encontrar i : a.i ≡ 1 (mod n)
+    '''
+    for i in range(n):
+        if (a*i - 1) % n == 0:
+            return i
+    return None
+
 
 
 def main():
