@@ -97,7 +97,10 @@ def main():
 
     system = get_input(input_path)
 
-    print(solve_congruence_sys(system))
+    (x, N) = solve_congruence_sys(system)
+    print('Solução:')
+    print('x =', x)
+    print('N =', N)
 
 if __name__ == '__main__':
     main()
