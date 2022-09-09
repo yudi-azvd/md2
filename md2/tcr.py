@@ -1,7 +1,25 @@
 # https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
 # Aula 12
 
-from functools import reduce
+'''
+Yudi Yamane
+160149410
+
+Python
+
+Executar com 
+
+python -m md2.tcr samples/input1.csv
+
+A entrada deve ser o caminho para um arquivo csv.
+Cada linha deve ser uma equação de congruência
+com ai, bi, e ni. Exemplo:
+
+1,2,3
+2,1,5
+3,2,7
+'''
+
 from typing import List, Tuple
 from md2.mdc import mdc_i
 import sys
@@ -72,7 +90,7 @@ def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
     n_list = [row[2] for row in system]
 
     if not (check_ai_ni_are_coprimes(a_list, n_list) and check_all_n_are_coprimes(n_list)):
-        raise Exception('Não existe solução')
+        raise Exception('Não é possível aplicar TCR')
     
     solutions = [solve_congruence_eq(eq[0], eq[1], eq[2]) for eq in system]
     
@@ -96,12 +114,6 @@ def congruence_system_to_str(system: List[List[int]]) -> str:
 
 
 def main():
-    '''
-    Rodar este módulo com:
-
-    `python -m md2.tcr samples/input1.csv`
-    '''
-
     system = get_system_of_eq(input_path)
 
     (x, N) = solve_congruence_sys(system)
