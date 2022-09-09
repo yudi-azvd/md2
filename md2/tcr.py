@@ -10,7 +10,7 @@ args = sys.argv[1::]
 input_path = args[0]
 
 
-def get_input(input_path: str) -> List[List[int]]:
+def get_system_of_eq(input_path: str) -> List[List[int]]:
     file = open(input_path, 'r')
     matrix_input = []
     for line in file:
@@ -88,16 +88,26 @@ def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
         x += xi*Ni*Ni_inv
     return (x % N, N)
 
+def congruence_system_to_str(system: List[List[int]]) -> str:
+    result = ''
+    for eq in system:
+        result += f'{eq[0]}x ≡ {eq[1]} (mod {eq[2]})\n'
+    return result
+
 
 def main():
-    # Saída esperada:
-    # input1: x = 38, N = 105
-    # input2: x = 416, N = 630
-    # input3: x = 74, N = 420 (vídeo L03Q02)
+    '''
+    Rodar este módulo com:
 
-    system = get_input(input_path)
+    `python -m md2.tcr samples/input1.csv`
+    '''
+
+    system = get_system_of_eq(input_path)
 
     (x, N) = solve_congruence_sys(system)
+
+    print('Sistema:')
+    print(congruence_system_to_str(system))
     print('Solução:')
     print('x =', x)
     print('N =', N)
