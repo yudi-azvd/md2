@@ -1,6 +1,6 @@
 import pytest
 
-from md2.tcr import find_inverse_mod_n
+from md2.congruence import find_inverse_mod_n
 # python -m pytest -k "mod_n[1-13-1]"
 test_data = [
     (2, 3, 2),

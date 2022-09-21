@@ -1,6 +1,6 @@
 import pytest
 
-from md2.tcr import solve_congruence_eq
+from md2.congruence import solve_congruence_eq
 
 test_data = [
     (3, 1, 4, 3),
