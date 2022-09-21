@@ -1,7 +1,7 @@
 from typing import List, Tuple
 import pytest
 
-from md2.tcr import solve_congruence_sys
+from md2.congruence import solve_congruence_sys
 
 test_data = [
     (
@@ -19,8 +19,7 @@ test_data = [
     (
         [[1, 2, 4],
          [2, 1, 7],
-         [7, 8, 15],
-         [1, 7122018, 11]],
+         [7, 8, 15]],
         (74, 420)
     ),
 ]
