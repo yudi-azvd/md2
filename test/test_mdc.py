@@ -7,7 +7,6 @@ test_data = [
   (19, 9, 1),
   (18, 9, 9),
   (48, 18, 6),
-  (48, 18, 6),
 ]
 
 params = pytest.mark.parametrize("a, b, expected_mdc", test_data)

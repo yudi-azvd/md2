@@ -7,7 +7,8 @@ ajudaram a estudar o conteúdo.
 
 ## Instalação 
 
-Você precisa do Python 3.10+ instalado em seu computador.
+Você precisa do [Python 3.10+](https://www.python.org/downloads/) 
+instalado em seu computador. Se você já o tem, instale as dependências:
 
 ```sh
 pip install -r requirements.txt

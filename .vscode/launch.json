@@ -8,10 +8,18 @@
       "name": "Debug Test",
       "type": "python",
       "request": "attach",
-      "console": "externalTerminal",
-      "justMyCode": false,
-      "stopOnEntry": true,
-      "purpose": ["debug-test"]
+      "justMyCode": true,
+    },
+    {
+      "name": "Debug TCR",
+      "type": "python",
+      "request": "launch",
+      "justMyCode": true,
+      // https://stackoverflow.com/questions/46102228/how-to-debug-a-python-module-in-visual-studio-codes-launch-json
+      "module": "md2.tcr",
+      "args": [
+        "samples/l3q5.csv"
+      ]
     }
   ]
 }

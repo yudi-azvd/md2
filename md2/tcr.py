@@ -1,10 +1,4 @@
-# https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
-# Aula 12
-
-'''
-Yudi Yamane
-160149410
-
+'''Resolvedor de Sistema de Equações de Congruência via Teorema Chinês dos Restos
 Python
 
 Executar com 
@@ -18,15 +12,18 @@ com ai, bi, e ni. Exemplo:
 1,2,3
 2,1,5
 3,2,7
+
+Teoria:
+Aula 12: https://www.youtube.com/watch?v=mxJ5-ryGFjA&list=PLpizEtrJatZHsk1Ytqvaf6AMDzy8-gMz9&index=12&t=947s
+
+Autor: Yudi Yamane, 160149410
+
+https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
 '''
 
 from typing import List, Tuple
 from md2.mdc import mdc_i
 import sys
-
-args = sys.argv[1::]
-input_path = args[0]
-
 
 def get_system_of_eq(input_path: str) -> List[List[int]]:
     file = open(input_path, 'r')
@@ -35,6 +32,7 @@ def get_system_of_eq(input_path: str) -> List[List[int]]:
         values_str = line.split(',')
         values_int = [int(i.rstrip()) for i in values_str]
         matrix_input.append(values_int)
+    file.close()
     return matrix_input
 
 
@@ -114,15 +112,21 @@ def congruence_system_to_str(system: List[List[int]]) -> str:
 
 
 def main():
+    args = sys.argv[1::]
+    input_path = args[0]
+
     system = get_system_of_eq(input_path)
 
-    (x, N) = solve_congruence_sys(system)
+    try:
+        (x, N) = solve_congruence_sys(system)
 
-    print('Sistema:')
-    print(congruence_system_to_str(system))
-    print('Solução:')
-    print('x =', x)
-    print('N =', N)
+        print('Sistema:')
+        print(congruence_system_to_str(system))
+        print('Solução:')
+        print('x =', x)
+        print('N =', N)
+    except Exception as e:
+        print(e.args[0])
 
 if __name__ == '__main__':
     main()
