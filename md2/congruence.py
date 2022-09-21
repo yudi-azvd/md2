@@ -52,7 +52,8 @@ def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
     x = 0
     for (xi, Ni, Ni_inv) in zip(solutions, N_list, Ninv_list):
         x += xi*Ni*Ni_inv
-    return (x % N, N)
+    x %= N
+    return (x, N), (solutions, N_list, Ninv_list)
 
 
 def congruence_system_to_str(system: List[List[int]]) -> str:

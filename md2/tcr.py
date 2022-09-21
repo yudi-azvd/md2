@@ -46,16 +46,25 @@ def main():
     args = sys.argv[1::]
     input_path = args[0]
 
+    debug_mode = '-d' in args
+
     system = get_system_of_eq(input_path)
 
     try:
-        (x, N) = solve_congruence_sys(system)
+        (x, N), debug_info = solve_congruence_sys(system)
 
         print('Sistema:')
         print(congruence_system_to_str(system))
         print('Solução:')
         print('x =', x)
         print('N =', N)
+
+        if debug_mode:
+            (solutions, N_list, Ninv_list) = debug_info
+            print('\n')
+            print('solutions', solutions)
+            print('N_list   ', N_list)
+            print('Ninv_list', Ninv_list)
     except Exception as e:
         print(e.args[0])
 
