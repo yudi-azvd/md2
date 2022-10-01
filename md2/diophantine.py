@@ -1,4 +1,3 @@
-from typing import List
 from md2.mdc import mdc_i
 
 
@@ -35,13 +34,13 @@ def calculate_successive_divisions(a: int, b: int):
     return divisions
 
 
-def rollback_successive_divisions(successive_divisions: List[List[int]]):
+def rollback_successive_divisions(successive_divisions: list[list[int]]):
     for division in successive_divisions:
         print(division)
     return 0
 
 
-def solve_diophantine_eq(a: int, b: int, c: int) -> List[int] | None:
+def solve_diophantine_eq(a: int, b: int, c: int) -> list[int] | None:
     '''Resolve equação diofantina
 
     ax + by = c

@@ -1,5 +1,3 @@
-from typing import Set
-
 '''
 Algoritmo das divisões sucessivas recursiva
 Ou por definição?
@@ -29,7 +27,7 @@ def mdc_set(a: int, b: int) -> int:
   mdc = max(a_divisors.intersection(b_divisors))
   return mdc
 
-def get_divisors(n: int) -> Set[int]:
+def get_divisors(n: int) -> set[int]:
   divisors = set([1])
   for i in range(2, n+1):
     if n % i == 0:

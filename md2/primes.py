@@ -1,5 +1,5 @@
 from math import sqrt
-from typing import List
+
 from md2.mdc import mdc_i
 
 
@@ -16,12 +16,12 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def prime_factors_of(n: int) -> List[int]:
+def prime_factors_of(n: int) -> list[int]:
     raise Exception('not implemented')
     return [1]
 
 
-def check_all_n_are_coprimes(n_list: List[int]) -> bool:
+def check_all_n_are_coprimes(n_list: list[int]) -> bool:
     n_list_size = len(n_list)
     for i in range(n_list_size):
         for j in range(i+1, n_list_size):
@@ -30,7 +30,7 @@ def check_all_n_are_coprimes(n_list: List[int]) -> bool:
     return True
 
 
-def check_ai_ni_are_coprimes(a_list: List[int], n_list: List[int]) -> bool:
+def check_ai_ni_are_coprimes(a_list: list[int], n_list: list[int]) -> bool:
     for ai, ni in zip(a_list, n_list):
         if mdc_i(ai, ni) != 1:
             return False

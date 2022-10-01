@@ -1,4 +1,3 @@
-from typing import List, Tuple
 from md2.primes import check_ai_ni_are_coprimes, check_all_n_are_coprimes
 
 
@@ -32,7 +31,7 @@ def solve_congruence_eq(a: int, b: int, n: int) -> int | None:
     return x
 
 
-def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
+def solve_congruence_sys(system: list[list[int]]) -> tuple[int, int]:
     a_list = [row[0] for row in system]
     n_list = [row[2] for row in system]
 
@@ -49,14 +48,16 @@ def solve_congruence_sys(system: List[List[int]]) -> Tuple[int, int]:
     Ninv_list = [find_inverse_mod_n(Ni, ni)
                  for (Ni, ni) in zip(N_list, n_list)]
 
+    mult = ''
     x = 0
     for (xi, Ni, Ni_inv) in zip(solutions, N_list, Ninv_list):
         x += xi*Ni*Ni_inv
+        mult += f' + {xi}*{Ni}*{Ni_inv}'
     x %= N
-    return (x, N), (solutions, N_list, Ninv_list)
+    return (x, N), (solutions, N_list, Ninv_list, mult)
 
 
-def congruence_system_to_str(system: List[List[int]]) -> str:
+def congruence_system_to_str(system: list[list[int]]) -> str:
     result = ''
     for eq in system:
         result += f'{eq[0]}x ≡ {eq[1]} (mod {eq[2]})\n'

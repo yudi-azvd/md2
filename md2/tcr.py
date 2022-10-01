@@ -22,12 +22,12 @@ https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
 '''
 
 import sys
-from typing import List
+
 from md2.primes import check_ai_ni_are_coprimes, check_all_n_are_coprimes
 from md2.congruence import solve_congruence_sys, congruence_system_to_str
 
 
-def get_system_of_eq(input_path: str) -> List[List[int]]:
+def get_system_of_eq(input_path: str) -> list[list[int]]:
     file = open(input_path, 'r')
     matrix_input = []
     for line in file:
@@ -38,7 +38,7 @@ def get_system_of_eq(input_path: str) -> List[List[int]]:
     return matrix_input
 
 
-def check_solution_exists(a_list: List[int], n_list: List[int]) -> bool:
+def check_solution_exists(a_list: list[int], n_list: list[int]) -> bool:
     return check_ai_ni_are_coprimes(a_list, n_list) and check_all_n_are_coprimes(n_list)
 
 
@@ -60,13 +60,15 @@ def main():
         print('N =', N)
 
         if debug_mode:
-            (solutions, N_list, Ninv_list) = debug_info
+            (solutions, N_list, Ninv_list, multiplication) = debug_info
             print('\n')
             print('solutions', solutions)
             print('N_list   ', N_list)
             print('Ninv_list', Ninv_list)
+            print('mult     ', multiplication)
     except Exception as e:
         print(e.args[0])
+        print(e.with_traceback())
 
 
 if __name__ == '__main__':
